@@ -1,0 +1,16 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction" controller="OpportunityController">
+    <aura:attribute name="stages" type="List"/>
+    <aura:attribute name="selectedStage" type="String" access="PRIVATE"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-p-around_medium">
+        <lightning:select name="select" label="Select Stage" required="true" value="{!v.selectedStage}">
+            <aura:iteration items="{!v.stages}" var="stage">
+                <option text="{!stage}"></option>
+            </aura:iteration>
+        </lightning:select>              
+        
+		 <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.handleSave }" />        
+    </div>
+</aura:component>
