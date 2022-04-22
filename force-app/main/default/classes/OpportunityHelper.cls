@@ -57,7 +57,9 @@ public class OpportunityHelper {
       }
     }
     update backToWork;
-    notifyService.sendEmails(ownerIds);
+    if (!ownerIds.isEmpty()) {
+      notifyService.sendEmails(ownerIds);
+    }
   }
 
   private boolean isOpportunityEligible(
